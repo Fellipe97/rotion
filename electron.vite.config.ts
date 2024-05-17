@@ -5,7 +5,9 @@ import tailwindcss from 'tailwindcss'
 
 export default defineConfig({
   main: {
-    plugins: [externalizeDepsPlugin()]
+    plugins: [externalizeDepsPlugin()],
+
+    publicDir: resolve('resources'),
   },
   preload: {
     plugins: [externalizeDepsPlugin()]
