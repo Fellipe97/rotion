@@ -28,6 +28,7 @@ module.exports = {
   },
 
   plugins: [
+    require('@tailwindcss/typography'),
     plugin(({ addUtilities }) => {
       addUtilities({
         '.region-drag': {
@@ -35,7 +36,7 @@ module.exports = {
         },
         '.region-no-drag': {
           '-webkit-app-region': 'no-drag',
-        }
+        },
       })
     })
   ],

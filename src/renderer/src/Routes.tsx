@@ -8,7 +8,7 @@ export function Routes() {
   return (
     <Router
       main={
-        <Route path='/' element={<Default/>}>
+        <Route path="/" element={<Default />}>
           <Route path="/" element={<Blank />} />
           <Route path="/document" element={<Document />} />
         </Route>

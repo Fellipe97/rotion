@@ -15,13 +15,13 @@ function createWindow(): void {
     titleBarStyle: 'hiddenInset',
     trafficLightPosition: {
       x: 20,
-      y: 20
+      y: 20,
     },
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
-    }
+      sandbox: false,
+    },
   })
 
   mainWindow.on('ready-to-show', () => {
@@ -37,11 +37,9 @@ function createWindow(): void {
 
   const fileRoute = createFileRoute(
     join(__dirname, '../renderer/index.html'),
-    'main'
+    'main',
   )
 
-  // HMR for renderer base on electron-vite cli.
-  // Load the remote URL for development or the local html file for production.
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
     mainWindow.loadURL(devServerURL)
   } else {
