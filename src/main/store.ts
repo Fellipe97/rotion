@@ -1,6 +1,14 @@
-import Store from "electron-store"
+import Store from 'electron-store';
 
-export const store = new Store()
+interface StoreType {
+    documents: Record<string, any>
+}
+
+export const store = new Store<StoreType>({
+    defaults:{
+        documents: {},
+    }
+})
 
 
-console.log('TESTE: ', store)
+console.log('Caminho storage: ', store.path)
