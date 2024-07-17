@@ -1,7 +1,8 @@
 import Store from 'electron-store';
+import { Document } from '../shared/types/ipc';
 
 interface StoreType {
-    documents: Record<string, any>
+    documents: Record<string, Document>
 }
 
 export const store = new Store<StoreType>({
@@ -11,4 +12,4 @@ export const store = new Store<StoreType>({
 })
 
 
-console.log('Caminho storage: ', store.path)
+//console.log('Caminho storage: ', store.path)
