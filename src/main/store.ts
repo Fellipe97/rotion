@@ -12,4 +12,4 @@ export const store = new Store<StoreType>({
 })
 
 
-//console.log('Caminho storage: ', store.path)
+console.log('Caminho storage: ', store.path)
