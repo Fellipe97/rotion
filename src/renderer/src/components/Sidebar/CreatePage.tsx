@@ -12,7 +12,7 @@ export function CreatePage() {
 
     return response.data
   }, {
-    onSuccess: (data) => {
+    onSuccess: (data: Document) => {
       //queryClient.invalidateQueries(['documents'])
       queryClient.setQueryData<Document[]>(['documents'], (documents) => {
         if (documents && documents?.length>=0){

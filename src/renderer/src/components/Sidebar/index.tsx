@@ -18,7 +18,7 @@ export function Sidebar() {
     queryKey: ['documents'],
     queryFn: async () => {
       const response = await window.api.fetchDocuments(); //Provavelmente tem algum erro aqui
-      console.log('Fetched documents:', response); 
+      console.log('Fetched documents:', response);
       return response.data;
     },
   });
@@ -60,9 +60,12 @@ export function Sidebar() {
           <Navigation.Section>
             <Navigation.SectionTitle>Workspace</Navigation.SectionTitle>
             <Navigation.SectionContent>
-              {data && data.map((document:any) => {
+              {data && data.map((document: any) => {
                 return (
-                  <Navigation.Link key={document.id}>
+                  <Navigation.Link
+                    to={`/documents/${document.id}`}
+                    key={document.id}
+                  >
                     {document.title}
                   </Navigation.Link>
                 )
