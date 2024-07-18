@@ -3,11 +3,15 @@ import icon from '../../resources/icon.png'
 import { join, resolve } from 'node:path'
 import { createFileRoute, createURLRoute } from 'electron-router-dom'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import { createTray } from './tray'
+import { createShortcuts } from './shortcuts'
 
 import './ipc'
 import './store'
 
+
 function createWindow(): void {
+
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1120,
@@ -26,6 +30,11 @@ function createWindow(): void {
       sandbox: false,
     },
   })
+
+  createTray(mainWindow)
+  createShortcuts(mainWindow)
+
+
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
