@@ -27,7 +27,9 @@ export function Document() {
         },
         {
             onSuccess: (_, { title, context }) => {
-                queryClient.setQueryData<IPCDocument[]>(['documents'], (documents) => {
+                queryClient.setQueryData<IPCDocument
+                
+                []>(['documents'], (documents) => {
                     return documents?.map(document => {
                         if (document.id === id) {
                             return { ...document, title }
